@@ -1,0 +1,11 @@
+E:\BridgeLabz\ASP.net\Book_Store\Business_Layer\bin\Debug\net6.0\Business_Layer.deps.json
+E:\BridgeLabz\ASP.net\Book_Store\Business_Layer\bin\Debug\net6.0\Business_Layer.dll
+E:\BridgeLabz\ASP.net\Book_Store\Business_Layer\bin\Debug\net6.0\Business_Layer.pdb
+E:\BridgeLabz\ASP.net\Book_Store\Business_Layer\obj\Debug\net6.0\Business_Layer.GeneratedMSBuildEditorConfig.editorconfig
+E:\BridgeLabz\ASP.net\Book_Store\Business_Layer\obj\Debug\net6.0\Business_Layer.AssemblyInfoInputs.cache
+E:\BridgeLabz\ASP.net\Book_Store\Business_Layer\obj\Debug\net6.0\Business_Layer.AssemblyInfo.cs
+E:\BridgeLabz\ASP.net\Book_Store\Business_Layer\obj\Debug\net6.0\Business_Layer.csproj.CoreCompileInputs.cache
+E:\BridgeLabz\ASP.net\Book_Store\Business_Layer\obj\Debug\net6.0\Business_Layer.dll
+E:\BridgeLabz\ASP.net\Book_Store\Business_Layer\obj\Debug\net6.0\refint\Business_Layer.dll
+E:\BridgeLabz\ASP.net\Book_Store\Business_Layer\obj\Debug\net6.0\Business_Layer.pdb
+E:\BridgeLabz\ASP.net\Book_Store\Business_Layer\obj\Debug\net6.0\ref\Business_Layer.dll

@@ -1,0 +1,14 @@
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\bin\Debug\net6.0\Repository_Layer.deps.json
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\bin\Debug\net6.0\Repository_Layer.runtimeconfig.json
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\bin\Debug\net6.0\Repository_Layer.dll
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\bin\Debug\net6.0\Repository_Layer.pdb
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\obj\Debug\net6.0\Repository_Layer.csproj.AssemblyReference.cache
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\obj\Debug\net6.0\Repository_Layer.GeneratedMSBuildEditorConfig.editorconfig
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\obj\Debug\net6.0\Repository_Layer.AssemblyInfoInputs.cache
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\obj\Debug\net6.0\Repository_Layer.AssemblyInfo.cs
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\obj\Debug\net6.0\Repository_Layer.csproj.CoreCompileInputs.cache
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\obj\Debug\net6.0\Repository_Layer.dll
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\obj\Debug\net6.0\refint\Repository_Layer.dll
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\obj\Debug\net6.0\Repository_Layer.pdb
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\obj\Debug\net6.0\Repository_Layer.genruntimeconfig.cache
+E:\BridgeLabz\ASP.net\Book_Store\Repository_Layer\obj\Debug\net6.0\ref\Repository_Layer.dll
