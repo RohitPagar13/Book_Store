@@ -782,6 +782,16 @@
             "rid": "win"
           }
         }
+      },
+      "Model_Layer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Model_Layer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model_Layer.dll": {}
+        }
       }
     }
   },
@@ -2003,6 +2013,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Model_Layer/1.0.0": {
+      "type": "project",
+      "path": "../ModelLayer/Model_Layer.csproj",
+      "msbuildProject": "../ModelLayer/Model_Layer.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2010,7 +2025,8 @@
       "Microsoft.EntityFrameworkCore >= 6.0.32",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.32",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.32",
-      "Microsoft.EntityFrameworkCore.Tools >= 6.0.32"
+      "Microsoft.EntityFrameworkCore.Tools >= 6.0.32",
+      "Model_Layer >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2044,7 +2060,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\BridgeLabz\\ASP.net\\Book_Store\\ModelLayer\\Model_Layer.csproj": {
+              "projectPath": "E:\\BridgeLabz\\ASP.net\\Book_Store\\ModelLayer\\Model_Layer.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
