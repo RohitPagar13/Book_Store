@@ -1,4 +1,4 @@
-﻿using Model_Layer.QueryModel;
+﻿using Model_Layer.RequestModel;
 using Model_Layer.ResponseModel;
 using Repository_Layer.Entity;
 using Repository_Layer.Service.Commands.Implementation;
@@ -10,9 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository_Layer.Service.Handlers.Command.Implementation
+namespace Repository_Layer.Service.Handlers.Command.Implementation.UserCommand
 {
-    public class RegisterUserCommandHandler : ICommandHandler<UserModel,UserResponseModel>
+    public class RegisterUserCommandHandler : ICommandHandler<UserModel, UserResponseModel>
     {
         private readonly IUserCommandRL _userCommandRL;
 

@@ -1,5 +1,5 @@
 ﻿using Business_Layer.Commands.Interface;
-using Model_Layer.QueryModel;
+using Model_Layer.RequestModel;
 using Model_Layer.ResponseModel;
 using Repository_Layer.Entity;
 using Repository_Layer.Service.Commands.Implementation;

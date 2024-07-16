@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Repository_Layer.Service.Handlers.Query.Interface
 {
-    public interface IQueryHandler<TCommand, TResponse>
+    public interface IQueryHandler<TQuery, TResponse>
     {
-        Task<TResponse> HandleAsync(TCommand command);
+        Task<TResponse> HandleAsync(TQuery query);
     }
 }

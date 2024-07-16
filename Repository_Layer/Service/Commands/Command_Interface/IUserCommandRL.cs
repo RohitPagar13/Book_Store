@@ -1,5 +1,4 @@
-﻿using Model_Layer.QueryModel;
-using Model_Layer.ResponseModel;
+﻿using Model_Layer.ResponseModel;
 using Repository_Layer.Entity;
 using System;
 using System.Collections.Generic;

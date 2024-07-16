@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.SqlClient;
-using Model_Layer.QueryModel;
 using Model_Layer.ResponseModel;
 using Repository_Layer.Context;
 using Repository_Layer.Custom_Exception;

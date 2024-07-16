@@ -1,4 +1,4 @@
-﻿using Model_Layer.QueryModel;
+﻿using Model_Layer.RequestModel;
 using Model_Layer.ResponseModel;
 using System;
 using System.Collections.Generic;

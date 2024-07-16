@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model_Layer.QueryModel
+namespace Model_Layer.RequestModel
 {
     public class BookModel
     {

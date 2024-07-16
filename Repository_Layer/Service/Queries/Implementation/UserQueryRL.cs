@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Model_Layer.QueryModel;
+using Model_Layer.RequestModel;
 using Model_Layer.ResponseModel;
 using Repository_Layer.Context;
 using Repository_Layer.Custom_Exception;
@@ -26,10 +26,6 @@ namespace Repository_Layer.Service.Queries.Implementation
             _db = db;
             _configuration = configuration;
         }
-        public Task<UserResponseModel> GetUserByEmailAsync(string email)
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<string> LoginUserAsync(UserLoginModel loginModel)
         {
@@ -42,7 +38,8 @@ namespace Repository_Layer.Service.Queries.Implementation
                 }
                 else if (HashPassword.verifyHash(loginModel.Password, result.Password))
                 {
-                    return await JWTTokenGenerator.generateToken(result.UserId, result.Email, result.Role, _configuration);
+                    var token = await JWTTokenGenerator.generateToken(result.UserId, result.Email, result.Role, _configuration);
+                    return token;
                 }
                 else
                 {

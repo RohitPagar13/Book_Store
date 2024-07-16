@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
-using Model_Layer.QueryModel;
+using Model_Layer.RequestModel;
 using Repository_Layer.Service.Handlers.Query.Interface;
 using Repository_Layer.Service.Queries.Query_Interface;
 using System;
@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository_Layer.Service.Handlers.Query.Implementation
+namespace Repository_Layer.Service.Handlers.Query.Implementation.UserQuery
 {
-    public class LoginUserQueryHandler : IQueryHandler<UserLoginModel,string>
+    public class LoginUserQueryHandler : IQueryHandler<UserLoginModel, string>
     {
         private readonly IUserQueryRL userQueryRL;
 
