@@ -16,10 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Business_Layer\Business_Layer.csproj" />
     <ProjectReference Include="..\Repository_Layer\Repository_Layer.csproj" />
   </ItemGroup>
 

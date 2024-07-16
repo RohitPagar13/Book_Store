@@ -68,3 +68,8 @@ E:\BridgeLabz\ASP.net\Book_Store\Book_Store\bin\Debug\net6.0\runtimes\win\lib\ne
 E:\BridgeLabz\ASP.net\Book_Store\Book_Store\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 E:\BridgeLabz\ASP.net\Book_Store\Book_Store\bin\Debug\net6.0\Repository_Layer.dll
 E:\BridgeLabz\ASP.net\Book_Store\Book_Store\bin\Debug\net6.0\Repository_Layer.pdb
+E:\BridgeLabz\ASP.net\Book_Store\Book_Store\bin\Debug\net6.0\Business_Layer.dll
+E:\BridgeLabz\ASP.net\Book_Store\Book_Store\bin\Debug\net6.0\Model_Layer.dll
+E:\BridgeLabz\ASP.net\Book_Store\Book_Store\bin\Debug\net6.0\Business_Layer.pdb
+E:\BridgeLabz\ASP.net\Book_Store\Book_Store\bin\Debug\net6.0\Model_Layer.pdb
+E:\BridgeLabz\ASP.net\Book_Store\Book_Store\bin\Debug\net6.0\BCrypt.Net-Next.dll

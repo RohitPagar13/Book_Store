@@ -30,7 +30,7 @@ namespace Book_Store.Controllers
                 {
                     responseML.Success = true;
                     responseML.Message = "Created successfully with id: " + result.Result.UserId;
-                    responseML.Data = result;
+                    responseML.Data = result.Result;
                 }
                 return StatusCode(201, responseML);
             }

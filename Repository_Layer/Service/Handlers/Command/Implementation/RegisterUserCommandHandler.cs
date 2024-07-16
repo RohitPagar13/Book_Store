@@ -25,12 +25,12 @@ namespace Repository_Layer.Service.Handlers.Command.Implementation
         {
             User user = new User
             {
-                FirstName = command.FirstName,
-                LastName = command.LastName,
-                Email = command.Email,
+                FirstName = command.FirstName?.ToLower(),
+                LastName = command.LastName?.ToLower(),
+                Email = command.Email?.ToLower(),
                 PhoneNo = command.PhoneNo,
                 Password = command.Password,
-                Role = command.Role,
+                Role = command.Role?.ToLower(),
             };
             return await _userCommandRL.RegisterUserAsync(user);
         }

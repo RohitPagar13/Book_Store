@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Book_Store/1.0.0": {
         "dependencies": {
+          "Business_Layer": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.32",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.32",
           "Repository_Layer": "1.0.0",
@@ -15,6 +16,14 @@
         },
         "runtime": {
           "Book_Store.dll": {}
+        }
+      },
+      "BCrypt.Net-Next/4.0.3": {
+        "runtime": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.0.3.0"
+          }
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -493,10 +502,26 @@
           }
         }
       },
+      "Business_Layer/1.0.0": {
+        "dependencies": {
+          "Model_Layer": "1.0.0",
+          "Repository_Layer": "1.0.0"
+        },
+        "runtime": {
+          "Business_Layer.dll": {}
+        }
+      },
+      "Model_Layer/1.0.0": {
+        "runtime": {
+          "Model_Layer.dll": {}
+        }
+      },
       "Repository_Layer/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.0.3",
           "Microsoft.EntityFrameworkCore": "6.0.32",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.32"
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.32",
+          "Model_Layer": "1.0.0"
         },
         "runtime": {
           "Repository_Layer.dll": {}
@@ -509,6 +534,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BCrypt.Net-Next/4.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "path": "bcrypt.net-next/4.0.3",
+      "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",
@@ -852,6 +884,16 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "Business_Layer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Model_Layer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Repository_Layer/1.0.0": {
       "type": "project",

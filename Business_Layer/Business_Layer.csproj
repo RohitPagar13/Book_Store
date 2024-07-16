@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Queries\Implementation\" />
+    <Folder Include="Queries\Interface\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ModelLayer\Model_Layer.csproj" />
+    <ProjectReference Include="..\Repository_Layer\Repository_Layer.csproj" />
+  </ItemGroup>
+
 </Project>

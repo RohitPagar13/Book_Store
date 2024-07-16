@@ -5,6 +5,7 @@ using Repository_Layer.Context;
 using Repository_Layer.Custom_Exception;
 using Repository_Layer.Entity;
 using Repository_Layer.Service.Commands.Interface;
+using RepositoryLayer.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,6 @@ namespace Repository_Layer.Service.Commands.Implementation
     public class UserCommandRL : IUserCommandRL
     {
         private readonly Book_Store_Context _db;
-
         public UserCommandRL(Book_Store_Context db)
         {
             _db = db;
@@ -44,11 +44,17 @@ namespace Repository_Layer.Service.Commands.Implementation
 
                     ur.Role = user.Role;
 
+                    if(user.Password != null)
+                    {
+                        user.Password = HashPassword.convertToHash(user.Password);
+                    }
+                    
                     ur.UserId = user.UserId;
 
                     await _db.Users.AddAsync(user);
                     await _db.SaveChangesAsync();
                     transaction.Commit();
+                    ur.UserId = user.UserId;
                     return ur;
                 }
                 catch (SqlException se)

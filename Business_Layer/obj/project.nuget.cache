@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nOWssw/rCbrB038EMjXtTgjDaJj1DgFbi3binSNWxr397nrIPvrwoA4WH+qgbOzOPyIU6CGeZXFHAjtJIPkE/A==",
+  "dgSpecHash": "sjKc/dFJxSlUrxZZNZUGENmzYEKA4qNuNypOMWIwsoFCx1kWaOFfVR+Cow2YP2cq3ztX3YlZuluSrIFbRJCemg==",
   "success": true,
   "projectFilePath": "E:\\BridgeLabz\\ASP.net\\Book_Store\\Business_Layer\\Business_Layer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
