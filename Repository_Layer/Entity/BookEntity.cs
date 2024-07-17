@@ -20,8 +20,7 @@ namespace Repository_Layer.Entity
         public string Genre { get; set; }
         public string Publisher { get; set; }
         public string Description { get; set; } = string.Empty;
-        public string Price { get; set; }
-        
+        public double Price { get; set; }
         public int StockQuantity { get; set; }
     }
 }

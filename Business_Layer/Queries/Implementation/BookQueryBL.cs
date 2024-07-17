@@ -15,18 +15,18 @@ namespace Business_Layer.Queries.Implementation
     public class BookQueryBL : IBookQueryBL
     {
         private readonly IQueryHandler<int,BookEntity> _getBookByIdQueryHandler;
-        private readonly IQueryHandler<GetAllBooksQuery, List<BookEntity>> _getAllBooksQueryHandler;
+        private readonly IGetAllQueryHandler<List<BookEntity>> _getAllBooksQueryHandler;
 
-        public BookQueryBL(IQueryHandler<int, BookEntity> getBookByIdQueryHandler, IQueryHandler<GetAllBooksQuery, List<BookEntity>> getAllBooksQueryHandler)
+        public BookQueryBL(IQueryHandler<int, BookEntity> getBookByIdQueryHandler, IGetAllQueryHandler<List<BookEntity>> getAllBooksQueryHandler)
         {
             _getBookByIdQueryHandler = getBookByIdQueryHandler;
             _getAllBooksQueryHandler = getAllBooksQueryHandler;
         }
-        public async Task<List<BookEntity>> getAllBookAsync(GetAllBooksQuery getAllBooksQuery)
+        public async Task<List<BookEntity>> getAllBookAsync()
         {
             try
             {
-                return await _getAllBooksQueryHandler.HandleAsync(getAllBooksQuery);
+                return await _getAllBooksQueryHandler.HandleAsync();
             }
             catch
             {
@@ -36,7 +36,14 @@ namespace Business_Layer.Queries.Implementation
 
         public async Task<BookEntity> getBookByIdAsync(int bookId)
         {
-            return await _getBookByIdQueryHandler.HandleAsync(bookId);
+            try
+            {
+                return await _getBookByIdQueryHandler.HandleAsync(bookId);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Business_Layer.Queries.Interface
 {
     public interface IBookQueryBL
     {
-        public Task<List<BookEntity>> getAllBookAsync(GetAllBooksQuery getAllBooksQuery);
+        public Task<List<BookEntity>> getAllBookAsync();
         public Task<BookEntity> getBookByIdAsync(int bookId);
     }
 }

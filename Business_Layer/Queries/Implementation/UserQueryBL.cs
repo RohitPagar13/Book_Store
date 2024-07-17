@@ -21,7 +21,14 @@ namespace Business_Layer.Queries.Implementation
         }
         public async Task<string> LoginUserAsync(UserLoginModel loginModel)
         {
-            return await _registerUserQueryHandler.HandleAsync(loginModel);   
+            try
+            {
+                return await _registerUserQueryHandler.HandleAsync(loginModel);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

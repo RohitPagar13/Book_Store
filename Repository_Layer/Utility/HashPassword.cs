@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repository_Layer.Custom_Exception;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,25 @@ namespace RepositoryLayer.Utility
     {
         public static string convertToHash(string password)
         {
-            return BCrypt.Net.BCrypt.HashPassword(password);
+            try
+            {
+                return BCrypt.Net.BCrypt.HashPassword(password);
+            }
+            catch
+            {
+                throw new BookStoreException("Unable to Encrypt Password. Please try again");
+            }
         }
         public static bool verifyHash(string password, string hashPass)
         {
-            return BCrypt.Net.BCrypt.Verify(password, hashPass);
+            try
+            {
+                return BCrypt.Net.BCrypt.Verify(password, hashPass);
+            }
+            catch
+            {
+                throw new BookStoreException("Unable to Decrypt Password. Please try again");
+            }
 
         }
     }

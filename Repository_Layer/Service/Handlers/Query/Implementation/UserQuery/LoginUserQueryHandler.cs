@@ -21,7 +21,14 @@ namespace Repository_Layer.Service.Handlers.Query.Implementation.UserQuery
 
         public async Task<string> HandleAsync(UserLoginModel userLoginModel)
         {
-            return await userQueryRL.LoginUserAsync(userLoginModel);
+            try
+            {
+                return await userQueryRL.LoginUserAsync(userLoginModel);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

@@ -25,16 +25,16 @@ namespace Book_Store.Controllers
         }
 
         [HttpPost("Register")]
-        public ActionResult RegisterUser(UserModel userModel)
+        public async Task<ActionResult> RegisterUser(UserModel userModel)
         {
             try
             {
-                var result = userCommandBL.RegisterUserAsync(userModel);
+                var result = await userCommandBL.RegisterUserAsync(userModel);
                 if (result != null)
                 {
                     responseML.Success = true;
-                    responseML.Message = "Created successfully with id: " + result.Result.UserId;
-                    responseML.Data = result.Result;
+                    responseML.Message = "Created successfully with id: " + result.UserId;
+                    responseML.Data = result;
                 }
                 return StatusCode(201, responseML);
             }
@@ -46,7 +46,6 @@ namespace Book_Store.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 responseML.Success = false;
                 responseML.Message = ex.Message;
                 return StatusCode(400, responseML);
@@ -54,7 +53,7 @@ namespace Book_Store.Controllers
         }
 
         [HttpPost("Login")]
-        public ActionResult LoginUser(UserLoginModel userLoginModel)
+        public async Task<ActionResult> LoginUser(UserLoginModel userLoginModel)
         {
             try
             {
@@ -63,7 +62,7 @@ namespace Book_Store.Controllers
                     return BadRequest("Invalid Login request");
                 }
 
-                string? token = userQueryBL.LoginUserAsync(userLoginModel).ToString();
+                string? token = await userQueryBL.LoginUserAsync(userLoginModel);
                 if (token != null)
                 {
                     responseML.Success = true;
@@ -79,14 +78,12 @@ namespace Book_Store.Controllers
             }
             catch (BookStoreException ex)
             {
-                Console.WriteLine(ex.Message);
                 responseML.Success = false;
                 responseML.Message = ex.Message;
                 return StatusCode(202, responseML);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 responseML.Success = false;
                 responseML.Message = ex.Message;
                 return StatusCode(400, responseML);

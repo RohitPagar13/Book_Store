@@ -23,16 +23,23 @@ namespace Repository_Layer.Service.Handlers.Command.Implementation.UserCommand
 
         public async Task<UserResponseModel> HandleAsync(UserModel command)
         {
-            User user = new User
+            try
             {
-                FirstName = command.FirstName?.ToLower(),
-                LastName = command.LastName?.ToLower(),
-                Email = command.Email?.ToLower(),
-                PhoneNo = command.PhoneNo,
-                Password = command.Password,
-                Role = command.Role?.ToLower(),
-            };
-            return await _userCommandRL.RegisterUserAsync(user);
+                User user = new User
+                {
+                    FirstName = command.FirstName?.ToLower(),
+                    LastName = command.LastName?.ToLower(),
+                    Email = command.Email?.ToLower(),
+                    PhoneNo = command.PhoneNo,
+                    Password = command.Password,
+                    Role = command.Role?.ToLower(),
+                };
+                return await _userCommandRL.RegisterUserAsync(user);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

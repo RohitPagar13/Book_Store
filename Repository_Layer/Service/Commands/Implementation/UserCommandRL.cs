@@ -27,7 +27,7 @@ namespace Repository_Layer.Service.Commands.Implementation
             {
                 try
                 {
-                    if (_db.Users.Any(u => u.Email.Equals(user.Email) && u.PhoneNo.Equals(user.PhoneNo)))
+                    if (_db.Users.Any(u => u.Email.Equals(user.Email) || u.PhoneNo.Equals(user.PhoneNo)))
                     {
                         throw new BookStoreException("Customer with specified Email or Phone Already Exists");
                     }
@@ -52,13 +52,13 @@ namespace Repository_Layer.Service.Commands.Implementation
 
                     await _db.Users.AddAsync(user);
                     await _db.SaveChangesAsync();
-                    transaction.Commit();
+                    await transaction.CommitAsync();
                     ur.UserId = user.UserId;
                     return ur;
                 }
                 catch (SqlException se)
                 {
-                    transaction.Rollback();
+                    await transaction.RollbackAsync();
                     Console.WriteLine(se.ToString());
                     throw;
                 }

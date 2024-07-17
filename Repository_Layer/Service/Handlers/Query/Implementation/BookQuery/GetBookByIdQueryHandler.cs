@@ -22,7 +22,14 @@ namespace Repository_Layer.Service.Handlers.Query.Implementation.Book
 
         public async Task<BookEntity> HandleAsync(int bookId)
         {
-            return await bookQueryRL.getBookByIdAsync(bookId);
+            try
+            {
+                return await bookQueryRL.getBookByIdAsync(bookId);
+            }
+            catch
+            {
+                throw;
+            }
         }
 
     }

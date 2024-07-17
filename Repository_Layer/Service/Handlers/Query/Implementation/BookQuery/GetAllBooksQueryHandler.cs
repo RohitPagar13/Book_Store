@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository_Layer.Service.Handlers.Query.Implementation.Book
 {
-    public class GetAllBooksQueryHandler : IQueryHandler<GetAllBooksQuery, List<BookEntity>>
+    public class GetAllBooksQueryHandler : IGetAllQueryHandler<List<BookEntity>>
     {
         private readonly IBookQueryRL bookQueryRL;
 
@@ -19,9 +19,16 @@ namespace Repository_Layer.Service.Handlers.Query.Implementation.Book
             this.bookQueryRL = bookQueryRL;
         }
 
-        public async Task<List<BookEntity>> HandleAsync(GetAllBooksQuery query)
+        public async Task<List<BookEntity>> HandleAsync()
         {
-            return await bookQueryRL.getAllBookAsync();
+            try
+            {
+                return await bookQueryRL.getAllBookAsync();
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

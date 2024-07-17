@@ -24,7 +24,14 @@ namespace Business_Layer.Commands.Implementation
 
         public async Task<UserResponseModel> RegisterUserAsync(UserModel command)
         {
-            return await _registerUserCommandHandler.HandleAsync(command);
+            try
+            {
+                return await _registerUserCommandHandler.HandleAsync(command);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }
