@@ -25,14 +25,13 @@ namespace Repository_Layer.Service.Handlers.Command.Implementation.UserCommand
         {
             try
             {
-                User user = new User
+                UserEntity user = new UserEntity
                 {
                     FirstName = command.FirstName?.ToLower(),
                     LastName = command.LastName?.ToLower(),
                     Email = command.Email?.ToLower(),
                     PhoneNo = command.PhoneNo,
                     Password = command.Password,
-                    Role = command.Role?.ToLower(),
                 };
                 return await _userCommandRL.RegisterUserAsync(user);
             }

@@ -37,7 +37,5 @@ namespace Model_Layer.RequestModel
         [DefaultValue("name@123")]
         public string? Password { get; set; }
 
-        [RegularExpression("^(Admin|Customer)$", ErrorMessage = "The role must be either 'Admin' or 'Customer'.")]
-        public string? Role { get; set; }
     }
 }

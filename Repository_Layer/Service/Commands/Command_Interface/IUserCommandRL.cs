@@ -10,7 +10,7 @@ namespace Repository_Layer.Service.Commands.Interface
 {
     public interface IUserCommandRL
     {
-        public Task<UserResponseModel> RegisterUserAsync(User user);
+        public Task<UserResponseModel> RegisterUserAsync(UserEntity user);
 
     }
 }

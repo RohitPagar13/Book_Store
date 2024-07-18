@@ -38,7 +38,7 @@ namespace Repository_Layer.Service.Queries.Implementation
                 }
                 else if (HashPassword.verifyHash(loginModel.Password, result.Password))
                 {
-                    var token = await JWTTokenGenerator.generateToken(result.UserId, result.Email, result.Role, _configuration);
+                    var token = await JWTTokenGenerator.generateToken(result.UserId, result.Email, "Customer", _configuration);
                     return token;
                 }
                 else

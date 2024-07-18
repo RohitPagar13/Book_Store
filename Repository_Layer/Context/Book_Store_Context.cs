@@ -12,8 +12,11 @@ namespace Repository_Layer.Context
     {
         public Book_Store_Context(DbContextOptions options): base(options) { }
 
-        public DbSet<User>? Users { get; set; }
+        public DbSet<UserEntity>? Users { get; set; }
 
         public DbSet<BookEntity>? Books { get; set; }
+
+        public DbSet<AdminEntity>? Admins { get; set; }
+        public DbSet<UserDetailsEntity>? UsersDetails { get; set; }
     }
 }

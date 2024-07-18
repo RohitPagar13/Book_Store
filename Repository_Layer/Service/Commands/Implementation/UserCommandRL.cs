@@ -21,7 +21,7 @@ namespace Repository_Layer.Service.Commands.Implementation
             _db = db;
         }
 
-        public async Task<UserResponseModel> RegisterUserAsync(User user)
+        public async Task<UserResponseModel> RegisterUserAsync(UserEntity user)
         {
             using (var transaction = _db.Database.BeginTransaction())
             {
@@ -40,8 +40,6 @@ namespace Repository_Layer.Service.Commands.Implementation
                     ur.Email = user.Email;
 
                     ur.PhoneNo = user.PhoneNo;
-
-                    ur.Role = user.Role;
 
                     if(user.Password != null)
                     {

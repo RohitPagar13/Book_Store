@@ -13,17 +13,17 @@ namespace Business_Layer.Queries.Implementation
 {
     public class UserQueryBL : IUserQueryBL
     {
-        private readonly IQueryHandler<UserLoginModel, string> _registerUserQueryHandler;
+        private readonly IQueryHandler<UserLoginModel, string> _loginUserQueryHandler;
 
-        public UserQueryBL(IQueryHandler<UserLoginModel, string> registerUserQueryHandler)
+        public UserQueryBL(IQueryHandler<UserLoginModel, string> loginUserQueryHandler)
         {
-            _registerUserQueryHandler = registerUserQueryHandler;
+            _loginUserQueryHandler = loginUserQueryHandler;
         }
         public async Task<string> LoginUserAsync(UserLoginModel loginModel)
         {
             try
             {
-                return await _registerUserQueryHandler.HandleAsync(loginModel);
+                return await _loginUserQueryHandler.HandleAsync(loginModel);
             }
             catch
             {

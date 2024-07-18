@@ -19,6 +19,5 @@ namespace Model_Layer.ResponseModel
 
         public string? PhoneNo { get; set; }
 
-        public string? Role { get; set; }
     }
 }

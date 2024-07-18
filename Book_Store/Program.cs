@@ -9,12 +9,16 @@ using Model_Layer.RequestModel;
 using Model_Layer.ResponseModel;
 using Repository_Layer.Context;
 using Repository_Layer.Entity;
+using Repository_Layer.Service.Commands.Command_Interface;
 using Repository_Layer.Service.Commands.Implementation;
 using Repository_Layer.Service.Commands.Interface;
+using Repository_Layer.Service.Handlers.Command.Implementation.AdminCommand;
 using Repository_Layer.Service.Handlers.Command.Implementation.BookCommand;
 using Repository_Layer.Service.Handlers.Command.Implementation.UserCommand;
 using Repository_Layer.Service.Handlers.Command.Interface;
+using Repository_Layer.Service.Handlers.Query.Implementation.Book;
 using Repository_Layer.Service.Handlers.Query.Implementation.UserQuery;
+using Repository_Layer.Service.Handlers.Query.Implementation.AdminQuery;
 using Repository_Layer.Service.Handlers.Query.Interface;
 using Repository_Layer.Service.Queries.Implementation;
 using Repository_Layer.Service.Queries.Query_Interface;
@@ -81,8 +85,10 @@ namespace Book_Store
                 // Register repositories
                 builder.Services.AddScoped<IUserCommandRL, UserCommandRL>();
                 builder.Services.AddScoped<IUserQueryRL, UserQueryRL>();
-                builder.Services.AddScoped<IBookCommandBL, BookCommandBL>();
-                builder.Services.AddScoped<IBookQueryBL, BookQueryBL>();
+                builder.Services.AddScoped<IBookCommandRL, BookCommandRL>();
+                builder.Services.AddScoped<IBookQueryRL, BookQueryRL>();
+                builder.Services.AddScoped<IAdminCommandRL, AdminCommandRL>();
+                builder.Services.AddScoped<IAdminQueryRL, AdminQueryRL>();
 
                 // Register handlers
                 builder.Services.AddScoped<ICommandHandler<UserModel, UserResponseModel>, RegisterUserCommandHandler>();
@@ -90,12 +96,18 @@ namespace Book_Store
                 builder.Services.AddScoped<ICommandHandler<BookModel, BookEntity>,AddBookCommandHandler>();
                 builder.Services.AddScoped<ICommandHandler<int, BookEntity>,DeleteBookCommandHandler>();
                 builder.Services.AddScoped<IUpdateCommandHandler<int,BookModel, BookEntity>,UpdateBookCommandHandler>();
+                builder.Services.AddScoped<IQueryHandler<int,BookEntity>,GetBookByIdQueryHandler>();
+                builder.Services.AddScoped<IGetAllQueryHandler<List<BookEntity>>,GetAllBooksQueryHandler>();
+                builder.Services.AddScoped<ICommandHandler<AdminModel, AdminResponseModel>, RegisterAdminCommandHandler>();
+                builder.Services.AddScoped<IQueryHandler<AdminLoginModel, string>, LoginAdminQueryHandler>();
 
                 // Register services
                 builder.Services.AddScoped<IUserCommandBL, UserCommandBL>();
                 builder.Services.AddScoped<IUserQueryBL, UserQueryBL>();
                 builder.Services.AddScoped<IBookQueryBL,BookQueryBL>();
                 builder.Services.AddScoped<IBookCommandBL,BookCommandBL>();
+                builder.Services.AddScoped<IAdminCommandBL, AdminCommandBL>();
+                builder.Services.AddScoped<IAdminQueryBL, AdminQueryBL>();
 
                 //JWT Authentication
                 var jwtSettings = builder.Configuration.GetSection("Jwt");

@@ -21,6 +21,41 @@ namespace Repository_Layer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Repository_Layer.Entity.AdminEntity", b =>
+                {
+                    b.Property<int>("AdminId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AdminId"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AdminId");
+
+                    b.ToTable("Admins");
+                });
+
             modelBuilder.Entity("Repository_Layer.Entity.BookEntity", b =>
                 {
                     b.Property<int>("BookId")
@@ -45,9 +80,8 @@ namespace Repository_Layer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("Publisher")
                         .IsRequired()
@@ -65,7 +99,7 @@ namespace Repository_Layer.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("Repository_Layer.Entity.User", b =>
+            modelBuilder.Entity("Repository_Layer.Entity.UserEntity", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -92,10 +126,6 @@ namespace Repository_Layer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
