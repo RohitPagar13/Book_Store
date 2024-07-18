@@ -20,6 +20,6 @@ namespace Repository_Layer.Context
         public DbSet<UserDetailsEntity>? UsersDetails { get; set; }
         public DbSet<CartEntity>? Carts { get; set; }
 
-        public DbSet<WishListEntity> WishList { get; set; }
+        
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository_Layer.Context;
 
@@ -11,9 +12,10 @@ using Repository_Layer.Context;
 namespace Repository_Layer.Migrations
 {
     [DbContext(typeof(Book_Store_Context))]
-    partial class Book_Store_ContextModelSnapshot : ModelSnapshot
+    [Migration("20240718201642_CartChanges")]
+    partial class CartChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,7 +56,7 @@ namespace Repository_Layer.Migrations
 
                     b.HasKey("AdminId");
 
-                    b.ToTable("Admins", (string)null);
+                    b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("Repository_Layer.Entity.BookEntity", b =>
@@ -105,7 +107,7 @@ namespace Repository_Layer.Migrations
 
                     b.HasIndex("AdminEntityAdminId");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("Repository_Layer.Entity.CartEntity", b =>
@@ -138,7 +140,7 @@ namespace Repository_Layer.Migrations
 
                     b.HasIndex("UserEntityUserId");
 
-                    b.ToTable("Carts", (string)null);
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("Repository_Layer.Entity.UserDetailsEntity", b =>
@@ -180,7 +182,7 @@ namespace Repository_Layer.Migrations
 
                     b.HasIndex("UserEntityUserId");
 
-                    b.ToTable("UsersDetails", (string)null);
+                    b.ToTable("UsersDetails");
                 });
 
             modelBuilder.Entity("Repository_Layer.Entity.UserEntity", b =>
@@ -215,7 +217,7 @@ namespace Repository_Layer.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Repository_Layer.Entity.BookEntity", b =>

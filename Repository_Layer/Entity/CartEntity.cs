@@ -23,7 +23,7 @@ namespace Repository_Layer.Entity
         [Range(0.01, double.MaxValue, ErrorMessage = "CartPrice must be greater than 0.00.")]
         public double CartPrice {  get; set; }
 
-        public bool IsInStock { get; set; } = true;
+        public bool IsInStock { get; set; }
 
         [ForeignKey("UserEntity")]
         public int UserId {  get; set; }
