@@ -23,6 +23,9 @@ using Repository_Layer.Service.Handlers.Query.Interface;
 using Repository_Layer.Service.Queries.Implementation;
 using Repository_Layer.Service.Queries.Query_Interface;
 using System.Text;
+using Repository_Layer.Service.Handlers.Command.Implementation.UserDetailsCommand;
+using Repository_Layer.Service.Handlers.Command.Implementation.CartCommand;
+using Repository_Layer.Service.Handlers.Query.Implementation.CartQuery;
 
 namespace Book_Store
 {
@@ -89,6 +92,9 @@ namespace Book_Store
                 builder.Services.AddScoped<IBookQueryRL, BookQueryRL>();
                 builder.Services.AddScoped<IAdminCommandRL, AdminCommandRL>();
                 builder.Services.AddScoped<IAdminQueryRL, AdminQueryRL>();
+                builder.Services.AddScoped<IUserDetailsCommandRL, UserDetailsCommandRL>();
+                builder.Services.AddScoped<ICartCommandRL, CartCommandRL>();
+                builder.Services.AddScoped<ICartQueryRL, CartQueryRL>();
 
                 // Register handlers
                 builder.Services.AddScoped<ICommandHandler<UserModel, UserResponseModel>, RegisterUserCommandHandler>();
@@ -100,6 +106,11 @@ namespace Book_Store
                 builder.Services.AddScoped<IGetAllQueryHandler<List<BookEntity>>,GetAllBooksQueryHandler>();
                 builder.Services.AddScoped<ICommandHandler<AdminModel, AdminResponseModel>, RegisterAdminCommandHandler>();
                 builder.Services.AddScoped<IQueryHandler<AdminLoginModel, string>, LoginAdminQueryHandler>();
+                builder.Services.AddScoped<ICommandHandler<UserDetailsClaimsModel, UserDetailsEntity>, AddUserDetailsCommandHandler>();
+                builder.Services.AddScoped<ICommandHandler<CartModel, CartEntity>, AddToCartCommandHandler >();
+                builder.Services.AddScoped<ICommandHandler<int,CartEntity>, DeleteCartCommandHandler >();
+                builder.Services.AddScoped<IUpdateCommandHandler<int,int,CartEntity>, UpdateCartCommandHandler >();
+                builder.Services.AddScoped<IQueryHandler<int, List<CartEntity>>, GetCartsForUserQueryHandler>();
 
                 // Register services
                 builder.Services.AddScoped<IUserCommandBL, UserCommandBL>();
@@ -108,6 +119,9 @@ namespace Book_Store
                 builder.Services.AddScoped<IBookCommandBL,BookCommandBL>();
                 builder.Services.AddScoped<IAdminCommandBL, AdminCommandBL>();
                 builder.Services.AddScoped<IAdminQueryBL, AdminQueryBL>();
+                builder.Services.AddScoped<IUserDetailsCommandBL, UserDetailsCommandBL>();
+                builder.Services.AddScoped<ICartCommandBL, CartCommandBL>();
+                builder.Services.AddScoped<ICartQueryBL, CartQueryBL>();
 
                 //JWT Authentication
                 var jwtSettings = builder.Configuration.GetSection("Jwt");

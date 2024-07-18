@@ -18,6 +18,5 @@ namespace Model_Layer.ResponseModel
         public string? Email { get; set; }
 
         public string? PhoneNo { get; set; }
-
     }
 }

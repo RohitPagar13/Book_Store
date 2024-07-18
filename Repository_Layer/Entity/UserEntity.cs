@@ -35,5 +35,8 @@ namespace Repository_Layer.Entity
         [JsonIgnore]
         public ICollection<UserDetailsEntity>? UserDetails { get; set;}
 
+        [JsonIgnore]
+        public ICollection<CartEntity>? UserCarts { get; set;}
+
     }
 }

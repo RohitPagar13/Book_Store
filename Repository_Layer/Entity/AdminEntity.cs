@@ -30,5 +30,7 @@ namespace Repository_Layer.Entity
 
         [Required]
         public string? Password { get; set; }
+
+        public ICollection<BookEntity> AdminBooks { get; set; }
     }
 }

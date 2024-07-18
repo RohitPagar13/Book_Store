@@ -20,7 +20,14 @@ namespace Repository_Layer.Entity
         public string Genre { get; set; }
         public string Publisher { get; set; }
         public string Description { get; set; } = string.Empty;
+
+        [Range(0.01, double.MaxValue, ErrorMessage = "BookPrice must be greater than 0.00.")]
         public double Price { get; set; }
+
+        [Range(1, int.MaxValue, ErrorMessage = "Stock Quantity must be greater than 0.")]
         public int StockQuantity { get; set; }
+
+        [ForeignKey("BookEntity")]
+        public int AdminId {  get; set; }
     }
 }
