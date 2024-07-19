@@ -30,7 +30,7 @@ namespace Repository_Layer.Entity
 
         [Required]
         [ForeignKey("UserEntity")]
-        public int UserId { get; set; }
+        public int UserEntityId { get; set; }
 
     }
 }

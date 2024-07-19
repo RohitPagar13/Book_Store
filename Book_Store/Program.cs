@@ -110,7 +110,7 @@ namespace Book_Store
                 builder.Services.AddScoped<ICommandHandler<CartModel, CartEntity>, AddToCartCommandHandler >();
                 builder.Services.AddScoped<ICommandHandler<int,CartEntity>, DeleteCartCommandHandler >();
                 builder.Services.AddScoped<IUpdateCommandHandler<int,int,CartEntity>, UpdateCartCommandHandler >();
-                builder.Services.AddScoped<IQueryHandler<int, List<CartEntity>>, GetCartsForUserQueryHandler>();
+                builder.Services.AddScoped<IQueryHandler<int, CartResponseModel>, GetCartsForUserQueryHandler>();
 
                 // Register services
                 builder.Services.AddScoped<IUserCommandBL, UserCommandBL>();

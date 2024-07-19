@@ -35,7 +35,7 @@ namespace Book_Store.Controllers
                 if (result != null)
                 {
                     responseML.Success = true;
-                    responseML.Message = "Get All Books Request successful";
+                    responseML.Message = "Get All Cart Request successful";
                     responseML.Data = result;
                 }
                 return StatusCode(200, responseML);

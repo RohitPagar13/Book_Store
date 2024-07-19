@@ -27,7 +27,8 @@ namespace Repository_Layer.Entity
         [Range(1, int.MaxValue, ErrorMessage = "Stock Quantity must be greater than 0.")]
         public int StockQuantity { get; set; }
 
-        [ForeignKey("BookEntity")]
-        public int AdminId {  get; set; }
+        [Required]
+        [ForeignKey("AdminEntity")]
+        public int AdminEntityId {  get; set; }
     }
 }

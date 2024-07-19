@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace Repository_Layer.Entity
 {
@@ -31,6 +32,7 @@ namespace Repository_Layer.Entity
         [Required]
         public string? Password { get; set; }
 
-        public ICollection<BookEntity> AdminBooks { get; set; }
+        [JsonIgnore]
+        public ICollection<BookEntity> Books { get; set; }
     }
 }

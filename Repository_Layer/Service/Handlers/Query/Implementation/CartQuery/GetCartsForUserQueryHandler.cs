@@ -1,4 +1,5 @@
-﻿using Repository_Layer.Entity;
+﻿using Model_Layer.ResponseModel;
+using Repository_Layer.Entity;
 using Repository_Layer.Service.Handlers.Query.Interface;
 using Repository_Layer.Service.Queries.Query_Interface;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository_Layer.Service.Handlers.Query.Implementation.CartQuery
 {
-    public class GetCartsForUserQueryHandler : IQueryHandler<int, List<CartEntity>>
+    public class GetCartsForUserQueryHandler : IQueryHandler<int, CartResponseModel>
     {
         private readonly ICartQueryRL cartQueryRL;
 
@@ -17,7 +18,7 @@ namespace Repository_Layer.Service.Handlers.Query.Implementation.CartQuery
         {
             this.cartQueryRL = cartQueryRL;
         }
-        public async Task<List<CartEntity>> HandleAsync(int query)
+        public async Task<CartResponseModel> HandleAsync(int query)
         {
             try
             {

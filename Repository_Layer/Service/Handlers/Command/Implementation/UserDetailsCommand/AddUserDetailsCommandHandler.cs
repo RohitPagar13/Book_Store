@@ -34,7 +34,7 @@ namespace Repository_Layer.Service.Handlers.Command.Implementation.UserDetailsCo
                     City = command.City,
                     Country = command.Country,
                     ZipCode = command.ZipCode,
-                    UserId = command.UserId,
+                    UserEntityId = command.UserId,
                 };
                 return await _userDetailsCommandRL.addUserDetailsAsync(user);
             }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Model_Layer.ResponseModel;
 using Repository_Layer.Context;
 using Repository_Layer.Custom_Exception;
 using Repository_Layer.Entity;
@@ -20,15 +21,18 @@ namespace Repository_Layer.Service.Queries.Implementation
         {
             _db = db;
         }
-        public async Task<List<CartEntity>> GetAllCartsForUserAsync(int userId)
+        public async Task<CartResponseModel> GetAllCartsForUserAsync(int userId)
         {
             try
             {
-                var result = await _db.Carts.Where(c=>c.UserId==userId).ToListAsync();
+                CartResponseModel UserCart = new CartResponseModel();
+                UserCart.AllCartsforUser = await _db.Carts.Where(c=>c.UserEntityId==userId).ToListAsync();
+                UserCart.TotalCartPrice = UserCart.AllCartsforUser.GroupBy(x => x.UserEntityId).Select(group => group.Sum(item => item.CartPrice)).Sum();
+                UserCart.TotalPrice = UserCart.TotalCartPrice + UserCart.deliveryFee;
 
-                foreach (var item in result)
+                foreach (var item in UserCart.AllCartsforUser)
                 {
-                    var book = await _db.Books.FindAsync(item.BookId);
+                    var book = await _db.Books.FindAsync(item.BookEntityId);
                     if (book.StockQuantity < 1)
                     {
                         item.IsInStock = false;
@@ -38,9 +42,9 @@ namespace Repository_Layer.Service.Queries.Implementation
                         item.IsInStock = true;
                     }
                 }
-                if (result != null)
+                if (UserCart != null)
                 {
-                    return result;
+                    return UserCart;
                 }
                 throw new BookStoreException("No Data found");
             }

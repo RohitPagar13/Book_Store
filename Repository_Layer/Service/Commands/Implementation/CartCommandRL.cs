@@ -27,7 +27,7 @@ namespace Repository_Layer.Service.Commands.Implementation
             {
                 try
                 {
-                    if (_db.Carts.AnyAsync(c => c.BookId == cartModel.BookId && c.UserId== cartModel.UserId).Result)
+                    if (_db.Carts.AnyAsync(c => c.BookEntityId == cartModel.BookId && c.UserEntityId== cartModel.UserId).Result)
                     {
                         throw new BookStoreException("Book with specified Id Already added to the Cart");
                     }
@@ -38,10 +38,10 @@ namespace Repository_Layer.Service.Commands.Implementation
                     }
                     CartEntity cart = new CartEntity
                     {
-                        BookId = cartModel.BookId,
+                        BookEntityId = cartModel.BookId,
                         Quantity = 1,
                         CartPrice = book.Price,
-                        UserId = cartModel.UserId
+                        UserEntityId = cartModel.UserId
                     };
 
                     await _db.Carts.AddAsync(cart);
@@ -94,7 +94,7 @@ namespace Repository_Layer.Service.Commands.Implementation
                     {
                         throw new BookStoreException("Cart with specified Id does not Exists");
                     }
-                    var book = await _db.Books.FindAsync(cart.BookId);
+                    var book = await _db.Books.FindAsync(cart.BookEntityId);
                     if(book.StockQuantity<Quantity)
                     {
                         throw new BookStoreException("Only " + book.StockQuantity + " left in the stock");

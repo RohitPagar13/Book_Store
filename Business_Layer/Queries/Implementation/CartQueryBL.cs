@@ -1,4 +1,5 @@
 ﻿using Business_Layer.Queries.Interface;
+using Model_Layer.ResponseModel;
 using Repository_Layer.Entity;
 using Repository_Layer.Service.Handlers.Query.Interface;
 using System;
@@ -11,13 +12,13 @@ namespace Business_Layer.Queries.Implementation
 {
     public class CartQueryBL : ICartQueryBL
     {
-        private readonly IQueryHandler<int, List<CartEntity>> _getCartsForUserQueryHandler;
+        private readonly IQueryHandler<int, CartResponseModel> _getCartsForUserQueryHandler;
 
-        public CartQueryBL(IQueryHandler<int, List<CartEntity>> getCartsForUserQueryHandler)
+        public CartQueryBL(IQueryHandler<int, CartResponseModel> getCartsForUserQueryHandler)
         {
             _getCartsForUserQueryHandler = getCartsForUserQueryHandler;
         }
-        public async Task<List<CartEntity>> GetAllCartsForUserAsync(int userId)
+        public async Task<CartResponseModel> GetAllCartsForUserAsync(int userId)
         {
             try
             {

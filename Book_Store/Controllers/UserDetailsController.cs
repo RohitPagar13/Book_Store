@@ -41,7 +41,7 @@ namespace Book_Store.Controllers
                 if (result != null)
                 {
                     responseML.Success = true;
-                    responseML.Message = "User Details added successfully with id: " + result.UserId;
+                    responseML.Message = "User Details added successfully with id: " + result.UserEntityId;
                     responseML.Data = result;
                 }
                 return StatusCode(201, responseML);

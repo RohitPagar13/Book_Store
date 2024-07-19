@@ -1,4 +1,5 @@
-﻿using Repository_Layer.Entity;
+﻿using Model_Layer.ResponseModel;
+using Repository_Layer.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Repository_Layer.Service.Queries.Query_Interface
 {
     public interface ICartQueryRL
     {
-        public Task<List<CartEntity>> GetAllCartsForUserAsync(int userId);
+        public Task<CartResponseModel> GetAllCartsForUserAsync(int userId);
     }
 }
