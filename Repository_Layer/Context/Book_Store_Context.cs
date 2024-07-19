@@ -21,5 +21,6 @@ namespace Repository_Layer.Context
         public DbSet<CartEntity>? Carts { get; set; }
         public DbSet<WishListEntity> WishList { get; set; }
 
+        public DbSet<OrderEntity> Orders { get; set; }
     }
 }
