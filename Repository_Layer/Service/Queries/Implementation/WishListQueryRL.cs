@@ -1,6 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Model_Layer.ResponseModel;
 using Repository_Layer.Context;
 using Repository_Layer.Custom_Exception;
 using Repository_Layer.Entity;
@@ -13,27 +12,23 @@ using System.Threading.Tasks;
 
 namespace Repository_Layer.Service.Queries.Implementation
 {
-    public class CartQueryRL : ICartQueryRL
+    public class WishListQueryRL:IWishListQueryRL
     {
         private readonly Book_Store_Context _db;
 
-        public CartQueryRL(Book_Store_Context db)
+        public WishListQueryRL(Book_Store_Context db)
         {
             _db = db;
         }
-        public async Task<CartResponseModel> GetAllCartsForUserAsync(int userId)
+        public async Task<List<WishListEntity>> GetAllWishListForUserAsync(int userId)
         {
             try
             {
-                CartResponseModel UserCart = new CartResponseModel();
-                UserCart.AllCartsforUser = await _db.Carts.Where(c=>c.UserEntityId==userId).ToListAsync();
-                UserCart.TotalCartPrice = UserCart.AllCartsforUser.GroupBy(x => x.UserEntityId).Select(group => group.Sum(item => item.CartPrice)).Sum();
-                UserCart.TotalPrice = UserCart.TotalCartPrice + UserCart.deliveryFee;
-
-                foreach (var item in UserCart.AllCartsforUser)
+                var result = await _db.WishList.Where(c => c.UserId == userId).ToListAsync();
+                foreach(var item in result)
                 {
-                    var book = await _db.Books.FindAsync(item.BookEntityId);
-                    if (book.StockQuantity < item.Quantity)
+                    var book = await _db.Books.FindAsync(item.BookId);
+                    if (book.StockQuantity < 1)
                     {
                         item.IsInStock = false;
                     }
@@ -42,9 +37,9 @@ namespace Repository_Layer.Service.Queries.Implementation
                         item.IsInStock = true;
                     }
                 }
-                if (UserCart != null)
+                if (result != null)
                 {
-                    return UserCart;
+                    return result;
                 }
                 throw new BookStoreException("No Data found");
             }
