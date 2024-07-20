@@ -10,7 +10,6 @@ namespace Repository_Layer.Models
     public class OrderResponseModel
     {
         public List<OrderEntity> Orders {  get; set; }
-
         public int DeliveryFee { get; set; } = 99;
         public double TotalPrice { get; set; }
 
