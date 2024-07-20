@@ -16,10 +16,12 @@ namespace Business_Layer.Commands.Implementation
     public class UserCommandBL : IUserCommandBL
     {
         private readonly ICommandHandler<UserModel,UserResponseModel> _registerUserCommandHandler;
+        private readonly IUpdateCommandHandler<string, string, string> _resetPasswordCommandHandler;
 
-        public UserCommandBL(ICommandHandler<UserModel,UserResponseModel> registerUserCommandHandler)
+        public UserCommandBL(ICommandHandler<UserModel,UserResponseModel> registerUserCommandHandler, IUpdateCommandHandler<string, string, string> resetPasswordCommandHandler)
         {
             _registerUserCommandHandler = registerUserCommandHandler;
+            _resetPasswordCommandHandler = resetPasswordCommandHandler;
         }
 
         public async Task<UserResponseModel> RegisterUserAsync(UserModel command)
@@ -27,6 +29,18 @@ namespace Business_Layer.Commands.Implementation
             try
             {
                 return await _registerUserCommandHandler.HandleAsync(command);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public async Task<string> ResetPasswordAsync(string email, string password)
+        {
+            try
+            {
+                return await _resetPasswordCommandHandler.HandleAsync(email, password);
             }
             catch
             {

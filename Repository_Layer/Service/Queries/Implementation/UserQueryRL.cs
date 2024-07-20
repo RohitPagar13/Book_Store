@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Model_Layer;
 using Model_Layer.RequestModel;
 using Model_Layer.ResponseModel;
 using Repository_Layer.Context;
@@ -51,6 +52,26 @@ namespace Repository_Layer.Service.Queries.Implementation
                 Console.WriteLine(se.ToString());
                 throw;
             }
+        }
+
+        public async Task<string> ForgetPasswordAsync(string email)
+        {
+
+            var result = await _db.Users.Where(s => s.Email == email).FirstOrDefaultAsync();
+
+            if (result == null)
+            {
+                throw new BookStoreException("No such user found");
+            }
+            var jwtToken = JWTTokenGenerator.generateToken(result.UserId, result.Email,"User", _configuration);
+
+            EmailModel model = new EmailModel();
+            model.To = result.Email;
+            model.Subject = "Reset Password";
+            model.Body = "http://localhost:5264/BookStore/User/reset-password/jwttoken?" + jwtToken;
+
+            EmailSender.SendEmail(model, _configuration);
+            return email;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Repository_Layer.Service.Commands.Interface
     public interface IUserCommandRL
     {
         public Task<UserResponseModel> RegisterUserAsync(UserEntity user);
+        public Task<string> ResetPasswordAsync(string email, string password);
 
     }
 }

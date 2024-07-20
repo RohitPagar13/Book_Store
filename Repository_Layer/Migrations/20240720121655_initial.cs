@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Repository_Layer.Migrations
 {
-    public partial class @new : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,6 +41,21 @@ namespace Repository_Layer.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.UserId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WishList",
+                columns: table => new
+                {
+                    WishListId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    IsInStock = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WishList", x => x.WishListId);
                 });
 
             migrationBuilder.CreateTable(
@@ -123,6 +139,35 @@ namespace Repository_Layer.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    OrderId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookEntityId = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    UserDetailsEntityId = table.Column<int>(type: "int", nullable: false),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OrderPrice = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.OrderId);
+                    table.ForeignKey(
+                        name: "FK_Orders_Books_BookEntityId",
+                        column: x => x.BookEntityId,
+                        principalTable: "Books",
+                        principalColumn: "BookId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Orders_UsersDetails_UserDetailsEntityId",
+                        column: x => x.UserDetailsEntityId,
+                        principalTable: "UsersDetails",
+                        principalColumn: "UserDetailsId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Books_AdminEntityId",
                 table: "Books",
@@ -139,6 +184,16 @@ namespace Repository_Layer.Migrations
                 column: "UserEntityId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_BookEntityId",
+                table: "Orders",
+                column: "BookEntityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_UserDetailsEntityId",
+                table: "Orders",
+                column: "UserDetailsEntityId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UsersDetails_UserEntityId",
                 table: "UsersDetails",
                 column: "UserEntityId");
@@ -150,16 +205,22 @@ namespace Repository_Layer.Migrations
                 name: "Carts");
 
             migrationBuilder.DropTable(
-                name: "UsersDetails");
+                name: "Orders");
+
+            migrationBuilder.DropTable(
+                name: "WishList");
 
             migrationBuilder.DropTable(
                 name: "Books");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "UsersDetails");
 
             migrationBuilder.DropTable(
                 name: "Admins");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

@@ -11,5 +11,6 @@ namespace Repository_Layer.Service.Queries.Query_Interface
     public interface IUserQueryRL
     {
         public Task<string> LoginUserAsync(UserLoginModel loginModel);
+        public Task<string> ForgetPasswordAsync(string email);
     }
 }

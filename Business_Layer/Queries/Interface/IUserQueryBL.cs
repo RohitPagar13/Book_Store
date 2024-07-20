@@ -10,5 +10,6 @@ namespace Business_Layer.Queries.Interface
     public interface IUserQueryBL
     {
         public Task<string> LoginUserAsync(UserLoginModel loginModel);
+        public Task<string> ForgetPasswordAsync(string email);
     }
 }

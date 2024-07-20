@@ -28,6 +28,9 @@ using Repository_Layer.Service.Handlers.Command.Implementation.CartCommand;
 using Repository_Layer.Service.Handlers.Query.Implementation.CartQuery;
 using Repository_Layer.Service.Handlers.Command.Implementation.WishListCommand;
 using Repository_Layer.Service.Handlers.Query.Implementation.WishListQuery;
+using Repository_Layer.Models;
+using Repository_Layer.Service.Handlers.Command.Implementation.OrderCommand;
+using Repository_Layer.Service.Handlers.Query.Implementation.OrderQuery;
 
 namespace Book_Store
 {
@@ -99,10 +102,14 @@ namespace Book_Store
                 builder.Services.AddScoped<ICartQueryRL, CartQueryRL>();
                 builder.Services.AddScoped<IWishListCommandRL, WishListCommandRL>();
                 builder.Services.AddScoped<IWishListQueryRL, WishListQueryRL>();
+                builder.Services.AddScoped<IOrderCommandRL, OrderCommandRL>();
+                builder.Services.AddScoped<IOrderQueryRL, OrderQueryRL>();
 
                 // Register handlers 
                 builder.Services.AddScoped<ICommandHandler<UserModel, UserResponseModel>, RegisterUserCommandHandler>();
                 builder.Services.AddScoped<IQueryHandler<UserLoginModel, string>, LoginUserQueryHandler>();
+                builder.Services.AddScoped<IUpdateCommandHandler<string, string, string>, ResetUserCommandHandler>();
+                builder.Services.AddScoped<IQueryHandler<string, string>, ForgotUserQueryHandler>();
                 builder.Services.AddScoped<ICommandHandler<BookModel, BookEntity>,AddBookCommandHandler>();
                 builder.Services.AddScoped<ICommandHandler<int, BookEntity>,DeleteBookCommandHandler>();
                 builder.Services.AddScoped<IUpdateCommandHandler<int,BookModel, BookEntity>,UpdateBookCommandHandler>();
@@ -118,6 +125,11 @@ namespace Book_Store
                 builder.Services.AddScoped<ICommandHandler<WishListModel,WishListEntity>,AddToWishListCommandHandler >();
                 builder.Services.AddScoped<ICommandHandler<int, WishListEntity>, RemoveFromWishListCommandHandler>();
                 builder.Services.AddScoped<IQueryHandler<int,List<WishListEntity>>,GetWishListForUserQueryHandler>();
+                builder.Services.AddScoped<ICommandHandler<PlaceOrderModel, OrderResponseModel>, PlaceOrderCommandHandler>();
+                builder.Services.AddScoped<ICommandHandler<BuyNowModel, OrderEntity>, BuyNowCommandHandler>();
+                builder.Services.AddScoped<ICommandHandler<int, OrderEntity>, CancelOrderCommandHandler>();
+                builder.Services.AddScoped<IQueryHandler<int,List<OrderEntity>>, GetOrdersForUserQueryHandler>();
+
 
                 // Register services
                 builder.Services.AddScoped<IUserCommandBL, UserCommandBL>();
@@ -131,6 +143,7 @@ namespace Book_Store
                 builder.Services.AddScoped<ICartQueryBL, CartQueryBL>();
                 builder.Services.AddScoped<IWishListCommandBL, WishListCommandBL>();
                 builder.Services.AddScoped<IWishListQueryBL, WishListQueryBL>();
+                builder.Services.AddScoped<IOrderCommandBL, OrderCommandBL>();
 
                 //JWT Authentication
                 var jwtSettings = builder.Configuration.GetSection("Jwt");

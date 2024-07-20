@@ -11,5 +11,6 @@ namespace Business_Layer.Commands.Interface
     public interface IUserCommandBL
     {
         public Task<UserResponseModel> RegisterUserAsync(UserModel command);
+        public Task<string> ResetPasswordAsync(string email, string password);
     }
 }

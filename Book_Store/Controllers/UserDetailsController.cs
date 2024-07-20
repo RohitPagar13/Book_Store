@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Book_Store.Controllers
 {
-    [Route("BookStore/[UserDetails]")]
+    [Route("BookStore/UserDetails")]
     [ApiController]
     public class UserDetailsController : ControllerBase
     {

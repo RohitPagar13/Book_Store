@@ -14,6 +14,13 @@ namespace Repository_Layer.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderId {  get; set; }
 
+        [ForeignKey("BookEntity")]
+        [Required]
+        public int BookEntityId {  get; set; }
+        public BookEntity? Books { get; set; }
+
+        public int Quantity { get; set; }
+
         [ForeignKey("UserDetailsEntity")]
         [Required]
         public int UserDetailsEntityId { get; set; }
@@ -22,6 +29,6 @@ namespace Repository_Layer.Entity
         public DateTime OrderDate { get; set; } = DateTime.Now;
          
         [RegularExpression(@"^\d+(\.\d{1,2})?$")]
-        public double TotalOrderPrice { get; set; }
+        public double OrderPrice { get; set; }
     }
 }

@@ -27,11 +27,11 @@ namespace Model_Layer.RequestModel
         public string Publisher { get; set; }
         public string Description { get; set; } = string.Empty;
 
-        [RegularExpression("^/d+(/./d{1,2})?$")]
+        [RegularExpression(@"^\d+(\.\d{1,2})?$")]
         [DefaultValue(00.00)]
         public double Price { get; set; }
 
-        [RegularExpression("^/d$")]
+        [RegularExpression(@"^\d$")]
         [DefaultValue(0)]
         public int StockQuantity { get; set; }
     }
